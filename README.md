@@ -145,7 +145,7 @@ cmake --build build --parallel
 
 ## Docker Environment
 
-Pre-built environment with all tools: gcc, gdb, valgrind, strace, ltrace, radare2, checksec, pwntools, pwndbg. Works on any OS including Windows.
+Pre-built environment with all tools: gcc, gdb, valgrind, strace, ltrace, radare2, checksec, pwntools, pwndbg, & frida. Works on any OS including Windows.
 
 ### Build image
 
@@ -156,14 +156,8 @@ docker build -t learn-c .
 ### Run (mounts current directory)
 
 ```sh
-# Linux / macOS
-docker run -it --rm -v $(pwd):/work learn-c
-
-# Windows (PowerShell)
-docker run -it --rm -v ${PWD}:/work learn-c
-
-# Windows (cmd)
-docker run -it --rm -v %cd%:/work learn-c
+# Linux / macOS / Windows
+docker run -it --rm -v .:/work learn-c
 ```
 
 Source files and built binaries are live-synced — edit on host, build/run inside container.
@@ -189,7 +183,7 @@ gdb ./build/test1
 - `--rm` deletes container on exit, `/work` volume keeps your files safe
 - Add `--privileged` if `strace` complains about permissions:
   ```sh
-  docker run -it --rm --privileged -v $(pwd):/work learn-c
+  docker run -it --rm --privileged -v .:/work learn-c
   ```
 
 ## Add a New Example

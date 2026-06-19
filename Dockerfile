@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
     # build
-    gcc g++ make cmake \
+    git gcc g++ make cmake \
     # debug
     gdb valgrind \
     # tracing & inspection
@@ -19,12 +19,12 @@ RUN apt-get update && apt-get install -y \
     less vim curl git \
     && rm -rf /var/lib/apt/lists/*
 
-# pwntools
-RUN pipx install pwntools && pipx ensurepath
+# pwntools & frida
+RUN pipx install pwntools frida-tools && pipx ensurepath
 
 # pwndbg (GDB plugin)
-RUN git clone --depth=1 https://github.com/pwndbg/pwndbg /opt/pwndbg \
-    && cd /opt/pwndbg && ./setup.sh --quiet
+RUN git clone --depth=1 https://github.com/pwndbg/pwndbg.git /opt/pwndbg \
+    && cd /opt/pwndbg && ./setup.sh
 
 WORKDIR /work
 
