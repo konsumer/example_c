@@ -2,8 +2,8 @@
 #include <conio.h>
 
 int main() {
-    int gd = DETECT, gm;
-    initgraph(&gd, &gm, "C:\\Turboc3\\BGI");
+    initwindow(640, 480, "shapes");
+    cleardevice();
 
     // Draw a line
     line(100, 100, 200, 200);
