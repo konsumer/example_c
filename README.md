@@ -143,6 +143,55 @@ cmake --build build --parallel
 ./build/test1   # crashes loudly on bad memory access with a full report
 ```
 
+## Docker Environment
+
+Pre-built environment with all tools: gcc, gdb, valgrind, strace, ltrace, radare2, checksec, pwntools, pwndbg. Works on any OS including Windows.
+
+### Build image
+
+```sh
+docker build -t learn-c .
+```
+
+### Run (mounts current directory)
+
+```sh
+# Linux / macOS
+docker run -it --rm -v $(pwd):/work learn-c
+
+# Windows (PowerShell)
+docker run -it --rm -v ${PWD}:/work learn-c
+
+# Windows (cmd)
+docker run -it --rm -v %cd%:/work learn-c
+```
+
+Source files and built binaries are live-synced — edit on host, build/run inside container.
+
+### Build and run inside container
+
+```sh
+cmake -B build
+cmake --build build --parallel
+./build/test1
+```
+
+### Debug inside container
+
+```sh
+gdb ./build/test1
+# pwndbg loads automatically — extra commands: heap, vmmap, cyclic, checksec
+```
+
+### Notes
+
+- Container runs as root — `sudo` not needed
+- `--rm` deletes container on exit, `/work` volume keeps your files safe
+- Add `--privileged` if `strace` complains about permissions:
+  ```sh
+  docker run -it --rm --privileged -v $(pwd):/work learn-c
+  ```
+
 ## Add a New Example
 
 Drop a `.c` file in `src/` and rebuild — no other changes needed.
