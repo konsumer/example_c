@@ -1,6 +1,6 @@
 # Learning C
 
-Work through tutorial examples here. Each `.c` file in `src/` builds into its own program automatically.
+Work through tutorial examples here (for example [this](https://www.techcrashcourse.com/2014/10/c-program-examples.html).) Each `.c` file in `src/` builds into its own program automatically.
 
 ## Install Tools
 
