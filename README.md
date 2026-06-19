@@ -2,6 +2,8 @@
 
 Work through tutorial examples here (for example [this](https://www.techcrashcourse.com/2014/10/c-program-examples.html).) Each `.c` file in `src/` builds into its own program automatically.
 
+You can also put `.c` file in `src/graphics/` and follow along with those old graphics examples, on a modern cross-platform interface.
+
 ## Install Tools
 
 ### macOS
