@@ -4,6 +4,8 @@
 #include <conio.h>
 
 int main() {
+    // setup the window.
+    // this is usually not in the graphic demos, but it sets the size & title and clears the framebuffer
     initwindow(640, 480, "shapes");
     cleardevice();
 
