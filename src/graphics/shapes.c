@@ -1,4 +1,6 @@
 #include <graphics.h>
+
+// getch() comes from here
 #include <conio.h>
 
 int main() {
@@ -14,7 +16,9 @@ int main() {
     // Draw a circle
     circle(500, 200, 50);
 
+    // old DOS "wait for key", which keeps the window open
     getch();
+
     closegraph();
     return 0;
 } 
