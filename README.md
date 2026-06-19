@@ -152,7 +152,6 @@ Pre-built environment with all tools: gcc, gdb, valgrind, strace, ltrace, radare
 ```sh
 docker build -t learn-c .
 ```
-
 ### Run (mounts current directory)
 
 ```sh

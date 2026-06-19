@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
     # python + pwntools
     python3 python3-pip pipx \
     # quality of life
-    less vim curl git \
+    less curl \
     && rm -rf /var/lib/apt/lists/*
 
 # pwntools & frida
